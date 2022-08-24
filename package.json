@@ -1,0 +1,46 @@
+{
+  "name": "deno-require",
+  "version": "1.0.0",
+  "description": "You can use this module to require a module in node just like deno",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-files": "copyfiles ./pkg/* ./example/pkg",
+    "example": "webpack-dev-server --config example/webpack.config.js",
+    "serve": "run-s copy-files example",
+    "build": "scripts/wasm/build.sh --features plugin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TyrealHu/deno-require.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TyrealHu/deno-require/issues"
+  },
+  "homepage": "https://github.com/TyrealHu/deno-require#readme",
+  "devDependencies": {
+    "@types/jest": "^24.1.0",
+    "react-tapable": "^1.0.3",
+    "copyfiles": "^2.3.0",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "wasm-loader": "^1.3.0",
+    "@commitlint/cli": "^16.3.0",
+    "@commitlint/config-conventional": "^16.2.4",
+    "cz-conventional-changelog": "^3.0.0",
+    "jest": "^24.1.0",
+    "microbundle": "^0.12.3",
+    "prettier": "^2.0.0",
+    "ts-jest": "^26.0.0",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.5"
+  }
+}

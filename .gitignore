@@ -6,3 +6,5 @@ pkg/
 .idea
 .Ds_Store
 wasm-pack.log
+node_module/
+yarn-error.log
