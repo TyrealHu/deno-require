@@ -38,5 +38,9 @@ let MyComponent = () => {
 `;
 
 let result = swc.transformSync(code, settings);
-console.log("result from transformSync", result);
-console.log(result.code);
+// console.log("result from transformSync", result);
+// console.log(result.code);
+
+swc.denoRequireFetch('').then(res => {
+  console.log(res)
+})
