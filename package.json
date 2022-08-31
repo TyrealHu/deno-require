@@ -2,17 +2,21 @@
   "name": "deno-require",
   "version": "1.0.0",
   "description": "You can use this module to require a module in node just like deno",
-  "main": "index.js",
-  "directories": {
-    "example": "example",
-    "test": "tests"
-  },
+  "source": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "unpkg": "lib/index.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy-files": "copyfiles ./pkg/* ./example/pkg",
-    "example": "webpack-dev-server --config example/webpack.config.js",
-    "serve": "run-s copy-files example",
-    "build": "scripts/wasm/build.sh --features plugin"
+    "build:clear": "yarn run clear && yarn run build",
+    "dev:clear": "yarn run clear && yarn run dev",
+    "build": "microbundle --define process.env.NODE_ENV=production --sourcemap false --jsx React.createElement --tsconfig ./tsconfig.json",
+    "dev": "microbundle --define process.env.NODE_ENV=development --sourcemap true --jsx React.createElement --tsconfig ./tsconfig.json",
+    "watch": "microbundle watch --define process.env.NODE_ENV=development --sourcemap true --jsx React.createElement --tsconfig ./tsconfig.json",
+    "clear": "rm -rf lib",
+    "commit": "git-cz",
+    "lint-ts": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": "jest --collect-coverage --silent"
   },
   "repository": {
     "type": "git",
@@ -42,5 +46,10 @@
     "ts-jest": "^26.0.0",
     "tslint": "^5.14.0",
     "typescript": "^3.4.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
