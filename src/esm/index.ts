@@ -1,5 +1,12 @@
 import { fetchJsFileAsync } from '../common'
 
-export function denoImport() {
+function denoEmsRequire(
+  _url: string,
+  _config: DenoRequireConfig
+) {
   fetchJsFileAsync('')
+}
+
+export {
+  denoEmsRequire
 }

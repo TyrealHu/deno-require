@@ -1,3 +1,3 @@
-export function denoRequire() {
+export function denoCmsRequire(_url: string, _config: DenoRequireConfig) {
 
 }
