@@ -1,10 +1,16 @@
 export const defaultDenoRequireConfig: DenoRequireConfig = {
-  sync: false,
   module: 'CommonJS',
   methods: 'GET',
   headers: {},
   cors: false,
   credentials: false
+}
+
+export function mergeConfig(rawConfig?: DenoRequireRawConfig): DenoRequireConfig {
+  return {
+    ...defaultDenoRequireConfig,
+    ...rawConfig
+  }
 }
 
 export enum fetchMethods {

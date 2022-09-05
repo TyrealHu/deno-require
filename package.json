@@ -28,6 +28,9 @@
     "url": "https://github.com/TyrealHu/deno-require/issues"
   },
   "homepage": "https://github.com/TyrealHu/deno-require#readme",
+  "dependencies": {
+    "acorn": "^8.8.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.1.0",
     "react-tapable": "^1.0.3",

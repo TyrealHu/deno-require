@@ -2,16 +2,11 @@ type SupportFetchMethods = 'POST' | 'GET' | 'PUT'
 
 type SupportModule = 'CommonJS' | 'EsModule'
 
+type DenoRequireReturnType<T extends Record<string, any>, N extends boolean> = N extends true ? T : Promise<T>
+
 type DenoRequireRawConfig = Partial<DenoRequireConfig>
 
-interface FetchJsFileResult {
-  code: string
-  err?: Error
-}
-
 interface DenoRequireSyncConfig {
-  // if you want to require the module sync
-  sync: true
   // the target js file module, the default is CommonJS
   module: SupportModule
   // the request methods, the default method is GET
@@ -25,8 +20,6 @@ interface DenoRequireSyncConfig {
 }
 
 interface DenoRequireAsyncConfig {
-  // if you want to require the module sync
-  sync: false
   // the target js file module, the default is CommonJS
   module: SupportModule
   // the request methods, the default method is GET
@@ -40,3 +33,10 @@ interface DenoRequireAsyncConfig {
 }
 
 type DenoRequireConfig = DenoRequireAsyncConfig | DenoRequireSyncConfig
+
+interface DenoRequireFetchJsFileConfig {
+  methods: SupportFetchMethods
+  headers: Record<string, string>
+  cors: boolean
+  credentials: boolean
+}
